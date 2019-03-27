@@ -89,23 +89,25 @@ app.post('/getEnquiries', function (req, res) {
 });
 
 app.post('/login', function (req, res) {
-  let l_user = req.body
-  user.find(l_user,{"email":1,"name":2,"role":3},function(err,data){
-    console.log(data[0])
+  // let l_user = req.body
+  // user.find(l_user,{"email":1,"name":2,"role":3},function(err,data){
+  //   console.log(data[0])
     
-    let l_data=JSON.stringify(data[0]);
+  //   let l_data=JSON.stringify(data[0]);
 
-    if(data.length){
-      jwt.sign(l_data,'secret',
-      (err,token)=>{
-        console.log(token);
-        res.status(200).json(token);
-        res.send(token);
-      })
-    }
-    else
+  //   if(data.length){
+  //     jwt.sign(l_data,'secret',
+  //     (err,token)=>{
+  //       console.log(token);
+  //       res.status(200).json(token);
+  //       res.send(token);
+  //     })
+  //   }
+  //   else
+  //     res.send('Invalid User Name or password')
+  // });
       res.send('Invalid User Name or password')
-  });
+  
 })
 app.post('/verify',function(req,res){
   console.log(req.body)
