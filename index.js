@@ -17,6 +17,10 @@ const jwt = require('jsonwebtoken');
 
 app.use(bodyParser.json());
 
+app.get('/',(req,res)=>{
+	res.send('hello world')
+})
+
 app.post('/createUser',cors(), function (req, res) {
     
   if(validateToken(req.headers.jwt)!=='Valid'){res.send('Invalid token'); return}
